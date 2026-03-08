@@ -320,6 +320,12 @@ _bind_fonts() {
         BWRAP_ARGUMENTS_FOR_GUI_AND_RUNTIME_BINDINGS+=" --ro-bind $HOME/.local/share/fonts $HOME/.local/share/fonts" 
     fi
 }
+_bind_systemd-resolved() {
+    echo "绑定systemd-resolved..."
+    if [ -d "/run/systemd/resolve" ]; then
+        BWRAP_ARGUMENTS_FOR_GUI_AND_RUNTIME_BINDINGS+=" --ro-bind /run/systemd/resolve /run/systemd/resolve" 
+    fi
+}
 
 
 # --- 5. 执行逻辑 (Shell 代理模式核心) ---
@@ -436,6 +442,7 @@ if [ "$SCRIPT_OPERATION_MODE" == "RUN_COMMAND" ]; then
     _bind_devices
     _bind_dbus_and_aux
     _bind_fonts
+    _bind_systemd-resolved
 
     # 6.4. 执行应用或命令
     execute_sandboxed_command
