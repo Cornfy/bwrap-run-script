@@ -42,7 +42,8 @@ DEBUG: FULL_PATH_OF_COMMAND_ON_SYSTEM: /usr/sbin/firefox
 ✅ 策略：统一加载沙箱环境 HOME (/home/elysia)。
 DEBUG: host_command_path: /usr/sbin/firefox
 ℹ️ 策略：命令依赖于已全局绑定的系统目录 (/usr, /bin 等)。
-^C⏎                                                                                                                                          elysia@archlinux ~ [130]
+^C⏎ 
+elysia@archlinux ~ [130]
 > bwrap-run --list
 📦 已创建的沙箱列表 (持久化目录):
   - faugus-launcher
